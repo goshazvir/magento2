@@ -1,0 +1,27 @@
+<!--Use 'stepCode' as id attribute-->
+<li data-bind="fadeVisible: isVisible, attr: { id: stepCode }">
+    <div class="step-title" data-bind="i18n: stepTitle" data-role="title"></div>
+    <div id="checkout-step-title"
+         class="step-content"
+         data-role="content">
+
+        <form id="custom-checkout-form" class="form" data-bind="submit: navigateToNextStep, attr: {'data-hasrequired': $t('* Required Fields')}">
+            <fieldset class="fieldset">
+                <legend data-bind="i18n: 'Custom Checkout Form'"></legend>
+                <!-- ko foreach: getRegion('custom-checkout-form-fields') -->
+                <!-- ko template: getTemplate() --><!-- /ko -->
+                <!--/ko-->
+            </fieldset>
+
+            <!--<button data-role="opc-continue" data-bind="click: onSubmit" type="submit" class="button action continue primary">-->
+            <!--<span>&lt;!&ndash; ko i18n: 'Next'&ndash;&gt;&lt;!&ndash; /ko &ndash;&gt;</span>-->
+            <!--</button>-->
+            <button type="reset">
+                <span data-bind="i18n: 'Reset'"></span>
+            </button>
+            <button type="button" data-bind="click: onSubmit" class="action">
+                <span data-bind="i18n: 'Submit'"></span>
+            </button>
+        </form>
+    </div>
+</li>
