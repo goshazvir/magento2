@@ -8,13 +8,11 @@
                             <item name="children" xsi:type="array">
                                 <item name="steps" xsi:type="array">
                                     <item name="children" xsi:type="array">
-
                                         <!-- The new step you add -->
                                         <item name="coupon-step" xsi:type="array">
                                             <item name="component" xsi:type="string">Ciklum_Checkout/js/view/coupon-step</item>
                                             <item name="sortOrder" xsi:type="string">2</item>
                                             <item name="children" xsi:type="array">
-
                                                 <!--add here child component declaration for your step-->
                                                 <item name="custom-checkout-form-fieldset" xsi:type="array">
                                                     <!-- uiComponent is used as a wrapper for form fields (its template will render all children as a list) -->
@@ -97,10 +95,8 @@
                                                         </item>
                                                     </item>
                                                 </item>
-
                                             </item>
                                         </item>
-
                                     </item>
                                 </item>
                             </item>
