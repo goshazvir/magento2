@@ -10,6 +10,7 @@
     "rules": {
         "eqeqeq": [2, "smart"],
         "guard-for-in": 2,
+        "indent": ["error", 4],
         "lines-around-comment": [
             2,
             {

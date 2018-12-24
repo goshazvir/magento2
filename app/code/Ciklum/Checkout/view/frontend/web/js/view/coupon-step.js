@@ -1,69 +1,80 @@
-define(
-    [
-        'ko',
-        'uiComponent',
-        'underscore',
-        'Magento_Checkout/js/model/step-navigator',
-        'Magento_Customer/js/model/customer',
-        'Magento_Ui/js/form/form'
-    ],
-    function (
-        ko,
-        Component,
-        _,
-        stepNavigator,
-        customer
-    ) {
-        'use strict';
+define([
+    'ko',
+    'uiComponent',
+    'underscore',
+    'Magento_Checkout/js/model/step-navigator',
+    'Magento_Customer/js/model/customer',
+    'Magento_Ui/js/form/form'
+], function (
+    ko,
+    Component,
+    _,
+    stepNavigator,
+    customer
+) {
+    'use strict';
 
-        return Component.extend({
-            defaults: {
-                template: 'Ciklum_Checkout/coupon-step'
-            },
+    return Component.extend({
+        defaults: {
+            template: 'Ciklum_Checkout/coupon-step'
+        },
 
-            isVisible: ko.observable(true),
-            isLogedIn: customer.isLoggedIn(),
-            stepCode: 'coupon',
-            stepTitle: 'Coupon',
+        isVisible: ko.observable(true),
+        isLogedIn: customer.isLoggedIn(),
+        stepCode: 'coupon',
+        stepTitle: 'Coupon',
 
-            /**
-             *
-             * @returns {*}
-             */
-            initialize: function () {
-                this._super();
+        /**
+         *
+         * @returns {*}
+         */
+        initialize: function () {
+            this._super();
 
-                stepNavigator.registerStep(
-                    this.stepCode,
-                    null,
-                    this.stepTitle,
-                    this.isVisible,
-                    _.bind(this.navigate, this),
-                    15
-                );
+            console.log(_);
+            console.log("asdasdasds");
 
-                return this;
-            },
+            stepNavigator.registerStep(
+                this.stepCode,
+                null,
+                this.stepTitle,
+                this.isVisible,
+                _.bind(this.navigate, this),
+                15
+            );
 
-            /**
-            * Form submit handler
-            */
-            onSubmit: function() {
-                this.source.set('params.invalid', false);
-                this.source.trigger('customCheckoutForm.data.validate');
+            return this;
+        },
 
-                if (!this.source.get('params.invalid')) {
-                    var formData = this.source.get('customCheckoutForm');
-                    console.dir(formData);
-                }
-            },
+        /**
+         * Form submit handler
+         */
+        onSubmit: function() {
+            var formData;
 
-            /**
-             * @returns void
-             */
-            navigateToNextStep: function () {
-                stepNavigator.next();
+            this.source.set('params.invalid', false);
+            this.source.trigger('customCheckoutForm.data.validate');
+
+            if (!this.source.get('params.invalid')) {
+                formData = this.source.get('customCheckoutForm');
+                console.dir(formData);
             }
-        });
-    }
-);
+        },
+
+        /**
+         * @returns void
+         */
+        navigateToNextStep: function () {
+            stepNavigator.next();
+        },
+
+        /**
+         * Navigator change hash handler.
+         *
+         * @param {Object} step - navigation step
+         */
+        navigate: function (step) {
+            step && step.isVisible(true);
+        }
+    });
+});
