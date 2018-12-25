@@ -1,0 +1,116 @@
+<h2>KNOCKOUT:</h2>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "startSimple1": {
+                        "component": "Magento_Cms/js/knockout/plain-view-model1",
+                        "base_url": "<?= $block->escapeJs($block->getBaseUrl()) ?>"
+                    },
+                   "startSimple2": {
+                        "component": "Magento_Cms/js/knockout/plain-view-model2",
+                        "base_url": "<?= $block->escapeJs($block->getBaseUrl()) ?>"
+                    },
+                   "computedObservable": {
+                        "component": "Magento_Cms/js/knockout/plain-view-model3",
+                        "base_url": "<?= $block->escapeJs($block->getBaseUrl()) ?>"
+                    },
+                   "observableArrayObject": {
+                        "component": "Magento_Cms/js/knockout/plain-view-model4"
+                    },
+                   "observableArrayValues": {
+                        "component": "Magento_Cms/js/knockout/plain-view-model5"
+                    },
+                   "observableEs5": {
+                        "component": "Magento_Cms/js/knockout/plain-view-model6"
+                    },
+                   "exampleUiComponent": {
+                        "component": "Magento_Cms/js/knockout/plain-view-model7",
+                        "label": "JSON label property"
+                    },
+                   "exampleUiComponentTemplates": {
+                        "component": "Magento_Cms/js/knockout/plain-view-model8"
+                    },
+                   "exampleUiComponentChildren": {
+                        "component": "uiComponent",
+                        "template": "Magento_Cms/knockout/ui-component-template",
+                        "children": {
+                            "child1": {
+                                "component": "uiComponent",
+                                "template": "Magento_Cms/knockout/child",
+                                "children": {
+                                    "child2": {
+                                        "component": "uiComponent",
+                                        "template": "Magento_Cms/knockout/child"
+
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+</script>
+
+<div data-bind="scope: 'startSimple1'">
+    <pre data-bind="text: JSON.stringify(config, null, 2)"></pre>
+</div>
+
+<div data-bind="scope: 'startSimple2'">
+    <h2 data-bind="text: title"></h2>
+</div>
+
+<div data-bind="scope: 'computedObservable'">
+    <pre data-bind="text: output"></pre>
+</div>
+
+<div data-bind="scope: 'observableArrayObject'">
+    <table>
+        <tr>
+            <th data-bind="i18n: 'Currency to'"></th>
+            <th data-bind="i18n: 'Rate'"></th>
+        </tr>
+        <!-- ko foreach: exchange_rates -->
+        <tr>
+            <td data-bind="text: currency_to"></td>
+            <td data-bind="text: rate"></td>
+        </tr>
+        <!-- /ko -->
+    </table>
+</div>
+
+<div data-bind="scope: 'observableArrayValues'">
+    <ul data-bind="foreach: values">
+        <li data-bind="text: $data"></li>
+    </ul>
+</div>
+
+<div data-bind="scope: 'observableEs5'">
+    <h3 data-bind="text: label"></h3>
+    <table data-bind="foreach: items">
+        <tr>
+            <td data-bind="text: name"></td>
+            <td data-bind="text: qty"></td>
+            <td data-bind="text: price"></td>
+            <td data-bind="text: $parent.rowTotal($data)"></td>
+        </tr>
+    </table>
+    <div>Additional charge: <span data-bind="text: additional_charge"></span></div>
+    <strong>Total: <span data-bind="text: total()"></span></strong>
+</div>
+
+<div data-bind="scope: 'exampleUiComponent'">
+    <div data-bind="text: label"></div>
+</div>
+
+<div data-bind="scope: 'exampleUiComponentTemplates'">
+    <!-- ko template: "Magento_Cms/knockout/plain-view-model8" --><!-- /ko -->
+</div>
+
+<div data-bind="scope: 'exampleUiComponentChildren'">
+    <div data-bind="template: getTemplate()"></div>
+</div>

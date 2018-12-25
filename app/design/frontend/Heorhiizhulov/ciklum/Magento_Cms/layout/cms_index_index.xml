@@ -16,6 +16,8 @@
 
             <block name="widget-collapsible" template="Magento_Cms::widgets/collapsible.phtml" />
             <block name="widget-form" template="Magento_Cms::widgets/form.phtml" />
+
+            <block name="knockout-plain" template="Magento_Cms::knockout/js-container.phtml" />
         </referenceContainer>
     </body>
 </page>
