@@ -11,8 +11,8 @@
     </head>
     <body>
         <referenceContainer name="content">
-            <block name="js-title" template="Magento_Cms::js-title.phtml" />
-            <block name="js-container" template="Magento_Cms::js-container.phtml" />
+            <block name="js-title" template="Magento_Cms::require/js-title.phtml" />
+            <block name="js-container" template="Magento_Cms::require/js-container.phtml" />
         </referenceContainer>
     </body>
 </page>
