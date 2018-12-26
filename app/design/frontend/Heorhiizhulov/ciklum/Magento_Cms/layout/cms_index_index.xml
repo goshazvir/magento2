@@ -43,6 +43,8 @@
                     </argument>
                 </arguments>
             </block>
+
+            <block name="ui-components" template="Magento_Cms::ui-components/js-container2.phtml" />
         </referenceContainer>
     </body>
 </page>

@@ -18,9 +18,11 @@ var config = {
             'Magento_Checkout/js/require/checkout-data': {
                 'Magento_Cms/js/require/checkout-data-mixin': true
             },
-
             'Magento_Catalog/js/catalog-add-to-cart': {
                 'Magento_Cms/js/widgets/add-to-cart-mixin': true
+            },
+            'Magento_Checkout/js/view/minicart': {
+                'Magento_Cms/js/ui-components/minicart-mixin': true
             }
         }
     },

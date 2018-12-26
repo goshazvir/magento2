@@ -1,0 +1,50 @@
+<h2>UI-COMPONENTS-2:</h2>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "exampleUiComponentLocalStorage": {
+                        "component": "Magento_Cms/js/ui-components/local-storage"
+                    },
+                    "root": {
+                        "component": "Magento_Cms/js/ui-components/root",
+                        "deps": ["root.sharedState"],
+                        "children": {
+                            "sharedState": {
+                                "component": "Magento_Cms/js/ui-components/shared-state"
+                            }
+                        }
+                    },
+                    "mutator": {
+                        "component": "Magento_Cms/js/ui-components/state-management/value-mutator",
+                        "template": "Magento_Cms/ui-components/state-management/button",
+                        "children": {
+                            "display": {
+                                "component": "Magento_Cms/js/ui-components/state-management/value-display",
+                                "template": "Magento_Cms/ui-components/state-management/display"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+</script>
+
+<div data-bind="scope: 'exampleUiComponentLocalStorage'">
+    <span>Your input</span>
+    <input data-bind="textInput: input" autofocus />
+</div>
+
+<div data-bind="scope: 'root'">
+    <div>
+        The value is:
+        <span data-bind="text: value"></span>
+    </div>
+</div>
+
+<div data-bind="scope: 'mutator'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+</div>
