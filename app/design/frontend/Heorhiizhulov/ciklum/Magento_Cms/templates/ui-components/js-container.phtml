@@ -1,0 +1,116 @@
+<h2>UI-COMPONENTS:</h2>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                   "exampleUiComponentGroupChildren": {
+                        "component": "uiComponent",
+                        "children": {
+                            "child1": {
+                                "component": "uiComponent",
+                                "template": "Magento_Cms/knockout/child",
+                                "displayArea": "groupA"
+                            },
+                           "child2": {
+                                "component": "uiComponent",
+                                "template": "Magento_Cms/knockout/child",
+                                "displayArea": "groupB"
+                            }
+                        }
+                    },
+                    "exampleUiComponentTrack": {
+                        "component": "Magento_Cms/js/ui-components/track"
+                    },
+                    "exampleUiComponentImportsA": {
+                        "component": "Magento_Cms/js/ui-components/imports-a"
+                    },
+                    "exampleUiComponentImportsB": {
+                        "component": "Magento_Cms/js/ui-components/imports-b"
+                    },
+                    "exampleUiComponentExportA": {
+                        "component": "Magento_Cms/js/ui-components/export-a"
+                    },
+                    "exampleUiComponentExportB": {
+                        "component": "Magento_Cms/js/ui-components/export-b"
+                    },
+                    "exampleUiComponentLinksA": {
+                        "component": "Magento_Cms/js/ui-components/links-a"
+                    },
+                    "exampleUiComponentLinksB": {
+                        "component": "Magento_Cms/js/ui-components/links-b"
+                    },
+                    "exampleUiComponentProviderA": {
+                        "component": "Magento_Cms/js/ui-components/provider-a",
+                        "provider": "exampleUiComponentProviderB",
+                        "providerProperty": "value"
+                    },
+                    "exampleUiComponentProviderB": {
+                        "component": "Magento_Cms/js/ui-components/provider-b"
+                    }
+                }
+            }
+        }
+    }
+</script>
+
+<div data-bind="scope: 'exampleUiComponentGroupChildren'">
+    <!-- ko foreach: getRegion('groupA') -->
+    <!-- ko template: getTemplate() --><!-- /ko -->
+    <!-- /ko -->
+</div>
+
+<div data-bind="scope: 'exampleUiComponentTrack'">
+    <h3 data-bind="text: label"></h3>
+    <table data-bind="foreach: items">
+        <tr>
+            <td data-bind="text: name"></td>
+            <td data-bind="text: qty"></td>
+            <td data-bind="text: price"></td>
+            <td data-bind="text: $parent.rowTotal($data)"></td>
+        </tr>
+    </table>
+    <div>Additional charge: <span data-bind="text: additional_charge"></span></div>
+    <strong>Total: <span data-bind="text: total()"></span></strong>
+</div>
+
+<div data-bind="scope: 'exampleUiComponentImportsA'">
+    <h3 data-bind="text: label"></h3>
+    <div data-bind="text: amount"></div>
+</div>
+
+<div data-bind="scope: 'exampleUiComponentImportsB'">
+    <h3 data-bind="text: title"></h3>
+    <div data-bind="text: value"></div>
+</div>
+
+<div data-bind="scope: 'exampleUiComponentExportA'">
+    <h3 data-bind="text: label"></h3>
+    <div data-bind="text: amount"></div>
+</div>
+
+<div data-bind="scope: 'exampleUiComponentExportB'">
+    <h3 data-bind="text: title"></h3>
+    <div data-bind="text: value"></div>
+</div>
+
+<div data-bind="scope: 'exampleUiComponentLinksA'">
+    <h3 data-bind="text: label"></h3>
+    <div data-bind="text: amount"></div>
+</div>
+
+<div data-bind="scope: 'exampleUiComponentLinksB'">
+    <h3 data-bind="text: title"></h3>
+    <div data-bind="text: value"></div>
+</div>
+
+<div data-bind="scope: 'exampleUiComponentProviderA'">
+    <h3 data-bind="text: label"></h3>
+    <div data-bind="text: amount"></div>
+</div>
+
+<div data-bind="scope: 'exampleUiComponentProviderB'">
+    <h3 data-bind="text: title"></h3>
+    <div data-bind="text: value"></div>
+</div>

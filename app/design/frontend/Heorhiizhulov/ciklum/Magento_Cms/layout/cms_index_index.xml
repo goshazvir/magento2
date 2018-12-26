@@ -11,13 +11,15 @@
     </head>
     <body>
         <referenceContainer name="content">
-            <block name="require-title" template="Magento_Cms::require/js-title.phtml" />
-            <block name="require-container" template="Magento_Cms::require/js-container.phtml" />
+            <!--<block name="require-title" template="Magento_Cms::require/js-title.phtml" />-->
+            <!--<block name="require-container" template="Magento_Cms::require/js-container.phtml" />-->
 
-            <block name="widget-collapsible" template="Magento_Cms::widgets/collapsible.phtml" />
-            <block name="widget-form" template="Magento_Cms::widgets/form.phtml" />
+            <!--<block name="widget-collapsible" template="Magento_Cms::widgets/collapsible.phtml" />-->
+            <!--<block name="widget-form" template="Magento_Cms::widgets/form.phtml" />-->
 
-            <block name="knockout-plain" template="Magento_Cms::knockout/js-container.phtml" />
+            <!--<block name="knockout-plain" template="Magento_Cms::knockout/js-container.phtml" />-->
+
+            <block name="ui-components" template="Magento_Cms::ui-components/js-container.phtml" />
         </referenceContainer>
     </body>
 </page>
