@@ -1,0 +1,17 @@
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": <?= $block->getJsLayout() ?>
+        }
+    }
+</script>
+
+<div data-bind="scope: 'exampleUiComponentLayoutA'">
+    <h3 data-bind="text: label"></h3>
+    <div data-bind="text: amount"></div>
+
+    <div data-bind="with: getChild('exampleUiComponentLayoutB')">
+        <h3 data-bind="text: title"></h3>
+        <div data-bind="text: value"></div>
+    </div>
+</div>

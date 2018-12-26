@@ -19,7 +19,30 @@
 
             <!--<block name="knockout-plain" template="Magento_Cms::knockout/js-container.phtml" />-->
 
-            <block name="ui-components" template="Magento_Cms::ui-components/js-container.phtml" />
+            <!--<block name="ui-components" template="Magento_Cms::ui-components/js-container.phtml" />-->
+
+            <block name="ui-components-layout" template="Magento_Cms::ui-components/js-layout.phtml" >
+                <arguments>
+                    <argument name="jsLayout" xsi:type="array">
+                        <item name="components" xsi:type="array">
+                            <item name="exampleUiComponentLayoutA" xsi:type="array">
+                                <item name="component" xsi:type="string">Magento_Cms/js/ui-components/layout-a</item>
+                                <item name="config"  xsi:type="array">
+                                    <item name="label" xsi:type="string">Layout Component AA</item>
+                                    <item name="amount" xsi:type="string">12</item>
+                                </item>
+                                <item name="children"  xsi:type="array">
+                                    <item name="exampleUiComponentLayoutB" xsi:type="array">
+                                        <item name="component" xsi:type="string">Magento_Cms/js/ui-components/layout-b</item>
+                                        <item name="title" xsi:type="string">Layout Component BB</item>
+                                        <item name="value" xsi:type="string">91</item>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                    </argument>
+                </arguments>
+            </block>
         </referenceContainer>
     </body>
 </page>
